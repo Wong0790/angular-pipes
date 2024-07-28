@@ -22,6 +22,10 @@ export class AppComponent {
     25, 37, 19, -4, 28, 21, 19, 28, 33, 31, 9, 11, 5, -12, -5,
   ];
 
+  constructor() {
+    this.historicTemperatures.sort((a, b) => (a > b ? 1 : -1));
+  }
+
   //In this case we set the pipe to Impure so the HTML update every time anything changes (Not the best option)
   onReset(index: number) {
     /* const newTemps = [...this.historicTemperatures];
