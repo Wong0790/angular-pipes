@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { TemperaturePipe } from './temperature.pipe';
+import { SortPipe } from './sort.pipe';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [DatePipe, DecimalPipe, TemperaturePipe],
+  imports: [DatePipe, DecimalPipe, TemperaturePipe, SortPipe],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
@@ -21,7 +22,10 @@ export class AppComponent {
     25, 37, 19, -4, 28, 21, 19, 28, 33, 31, 9, 11, 5, -12, -5,
   ];
 
+  //When updating values inside elements that have pipes on them in case of arrays the values won't change on the HTML
   onReset(index: number) {
-    this.historicTemperatures[index] = 18;
+    const newTemps = [...this.historicTemperatures];
+    newTemps[index] = 18;
+    this.historicTemperatures = newTemps;
   }
 }
