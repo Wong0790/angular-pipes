@@ -3,6 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'temperature',
   standalone: true,
+  pure: false,
 })
 export class TemperaturePipe implements PipeTransform {
   transform(

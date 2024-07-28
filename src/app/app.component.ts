@@ -22,10 +22,11 @@ export class AppComponent {
     25, 37, 19, -4, 28, 21, 19, 28, 33, 31, 9, 11, 5, -12, -5,
   ];
 
-  //When updating values inside elements that have pipes on them in case of arrays the values won't change on the HTML
+  //In this case we set the pipe to Impure so the HTML update every time anything changes (Not the best option)
   onReset(index: number) {
-    const newTemps = [...this.historicTemperatures];
+    /* const newTemps = [...this.historicTemperatures];
     newTemps[index] = 18;
-    this.historicTemperatures = newTemps;
+    this.historicTemperatures = newTemps; */
+    this.historicTemperatures[index] = 18;
   }
 }
